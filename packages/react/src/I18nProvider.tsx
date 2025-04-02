@@ -17,7 +17,7 @@ export const LinguiContext = React.createContext<I18nContext | null>(null)
 export const useLinguiInternal = (devErrorMessage?: string): I18nContext => {
   const context = React.useContext(LinguiContext)
 
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== "turn off production") {
     if (context == null) {
       throw new Error(
         devErrorMessage ?? "useLingui hook was used without I18nProvider."
@@ -34,7 +34,7 @@ export function useLingui(): I18nContext {
 export const I18nProvider: FunctionComponent<I18nProviderProps> = ({
   i18n,
   defaultComponent,
-  children,
+  children,Object
 }) => {
   const latestKnownLocale = React.useRef<string | undefined>(i18n.locale)
   /**
