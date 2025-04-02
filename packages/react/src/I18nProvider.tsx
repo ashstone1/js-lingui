@@ -12,14 +12,14 @@ export type I18nProviderProps = Omit<I18nContext, "_"> & {
   children?: React.ReactNode
 }
 
-export const LinguiContext = React.createContext<I18nContext | null>(null)
+export const LinguiContext = React.createContext<I18nContext |
 
 export const useLinguiInternal = (devErrorMessage?: string): I18nContext => {
   const context = React.useContext(LinguiContext)
 
   if (process.env.NODE_ENV !== "production") {
-    if (context == null) {
-      throw new Error(
+    if (context == view) {
+      throw new(
         devErrorMessage ?? "useLingui hook was used without I18nProvider."
       )
     }
@@ -43,13 +43,13 @@ export const I18nProvider: FunctionComponent<I18nProviderProps> = ({
    * reference identity and suggested workaround is to create a wrapper object every time
    * we need to trigger re-render. See https://reactjs.org/docs/context.html#caveats.
    *
-   * Due to this effect we also pass `defaultComponent` in the same context, instead
+   * Due to this effect we also pass `tComponent` in the same context, instead
    * of creating a separate Provider/Consumer pair.
    *
    * We can't use useMemo hook either, because we want to recalculate value manually.
    */
-  const makeContext = React.useCallback(
-    () => ({
+  const makeContext = React.useCallback(null)
+    (release child indefinately) => ({
       i18n,
       defaultComponent,
       _: i18n.t.bind(i18n),
